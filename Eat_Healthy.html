@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+  <head> 
+	 <meta charset="utf-8">
+	 <meta name = 'description' content = 'This document contains some easy to cook healthy recipies'>   
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <title>Eat Healthy! </title> 
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	 
+	 <!--<link rel="stylesheet" href="C:\HTML\bootstrap-4.5.0-dist\bootstrap-4.5.0-dist\css\bootstrap.min.css">
+	 <link rel="stylesheet" href="C:\HTML\bootstrap-4.5.0-dist\bootstrap-4.5.0-dist\css\bootstrap-grid.min.css">-->
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="C:\HTML\DesignCSS.css">
+     <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <script type = "text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+	 <!--<script type ="text\javascript" src="C:\HTML\bootstrap-4.5.0-dist\bootstrap-4.5.0-dist\js\bootstrap.bundle.js"></script>
+	 <script type ="text\javascript" src="C:\HTML\bootstrap-4.5.0-dist\bootstrap-4.5.0-dist\js\bootstrap.min.js"></script>-->
+	 
+     <!--Script to show modal just after loading the page and hiding it on clicking CROSS or Will Do It Later buttons-->
+     <script>
+        $(document).ready(function(){
+			$("#myModal").show();
+			$(".whole-page,#scroll,header").addClass("overlay"); //adding overlay class after loading the page
+            $("#close-btn").click(function(){
+			$("#myModal").hide(300);
+			$(".whole-page,#scroll,header").removeClass("overlay"); //removing it when modal disappears
+          });
+            $(".close").click(function(){
+			$("#myModal").hide(300);
+			$(".whole-page,#scroll,header").removeClass("overlay"); //removing it when modal disappears
+          });
+        });
+	 </script>
+	 
+     <!--Script to change css of BMI form-->
+	 <script>
+        $(document).ready(function(){
+            $(".input").on({
+            mouseenter: function(){
+                $(this).css("background-color", "lightgray");
+            },  
+            mouseleave: function(){
+                $(this).css("background-color", "white");
+            }, 
+            click: function(){
+                $(this).css("background-color", "SpringGreen");
+            }  
+                    });
+                                });
+	</script>
+	
+    <!--Script to hide/show recipe of all the items-->
+    <script> 
+        $(document).ready(function(){
+          $(".recipe1").click(function(){
+            $(".view-recipe1").slideToggle("slow");
+          });
+        });
+	</script>
+	<script> 
+        $(document).ready(function(){
+          $(".recipe2").click(function(){
+            $(".view-recipe2").slideToggle("slow");
+          });
+        });
+	</script>
+	<script> 
+        $(document).ready(function(){
+          $(".recipe3").click(function(){
+            $(".view-recipe3").slideToggle("slow");
+          });
+        });
+	</script>
+	<script> 
+        $(document).ready(function(){
+          $(".recipe4").click(function(){
+            $(".view-recipe4").slideToggle("slow");
+          });
+        });
+	</script>
+	<script> 
+        $(document).ready(function(){
+          $(".recipe5").click(function(){
+            $(".view-recipe5").slideToggle("slow");
+          });
+        });
+	</script>
+	<script> 
+        $(document).ready(function(){
+          $(".recipe6").click(function(){
+            $(".view-recipe6").slideToggle("slow");
+          });
+        });
+	</script>
+	<script> 
+        $(document).ready(function(){
+          $(".recipe7").click(function(){
+            $(".view-recipe7").slideToggle("slow");
+          });
+        });
+	</script>
+	
+    <!--Script to hide/show BMI report-->
+    <script>
+        $(document).ready(function(){
+          $("#hide").click(function(){
+            $("#report").toggle(500);
+          });
+        });
+	</script>
+
+	<!--Script to toggle responsive navbar button-->
+	<script>
+		$(document).ready(function(){
+	  		$(".icon").click(function(){
+			$(".navbar-collapse.responsive").toggle(400);
+	  		});
+		});
+	</script>
+	
+    <!--Script to hide the report and disable that button after clicking RESET button-->
+    <script>
+        $(document).ready(function(){
+          $("#reset").click(function(){
+            $("#report").hide();
+            $("#hide").prop('disabled', true);
+          });
+        });
+	</script>
+	
+    <!--Script to slowly scroll to a div having id="heading"-->
+    <script>
+        $(document).ready(function(){
+        $("#scroll").click(function() {
+        $('html,body').animate({
+        scrollTop: $("#heading").offset().top},
+        'slow');
+                });
+            });
+	</script>
+  </head>
+  
+  <body> 
+
+<div class="container">
+      <!-- The Modal -->
+  <div class="modal" id="myModal" style="display: block;">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Subscribe here to stay tuned!</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form action="javascript:alert('Thanks '+ document.getElementById('name').value +' for subscribing!');" id="subscription" method="POST">
+                <input id="name" type="text" name="name" class="formStyle" placeholder="Name (required)" required />
+                <input id="email" type="email" name="email" class="formStyle" placeholder="Email (required)" required />
+                <input id="phone" type="tel" name="phone" class="formStyle" placeholder="Mobile No. (required)" pattern="[0-9]{10}" required />
+                <input id="submit" class="btn btn-success" type="submit" value="Subscribe">
+                <input id="reset1" class="btn btn-primary" type="reset" value="RESET ⏪">
+			</form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" id="close-btn" class="btn btn-danger" data-dismiss="modal">Will do it later...</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+    <!--JS alert-->
+	<script language = "javascript" type = "text/javascript">
+		let message = 'Welcome to MY KITCHEN! Please WASH your hands :)';
+		alert(message)
+    </script>
+
+    <!--Navbar at the top-->
+	<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+	<div class="navbar-header">
+	
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars fa-2x" style="color:orangered !important;"></i>
+		</a>
+
+		<script>
+			function myFunction() {
+	  		var x = document.getElementById("navbarSupportedContent");
+	  		if (x.className === "navbar-collapse") {
+				x.className += " responsive";
+			  } 
+			else {
+				x.className = "navbar-collapse";
+	  			}
+			}
+		</script>
+	</div>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" id="navbarlist">
+        <li class="nav-item dropdown">
+		<div class="click-me">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MENU</a>
+		</div>
+		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#laddoos">Seeds and Nuts Laddoos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#pancakes">Oats and Bananas Pancakes</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#oats">Overnight Oats</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#shake">Post Workout Energy Shake</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#paneer">Paneer Masala</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#thepla">Beetroot and Carrot Thepla</a>
+		  <div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="#parfait">Banana Cream Parfait</a>
+        </div>
+        </li>
+        <li class="nav-item">
+            <div class="click-me"><a class="nav-link" href = "#BMI">BMI CALCULATOR</a></div>
+		</li>
+		<li class="nav-item">
+			<div class="click-me"><a class="nav-link" href = "C:\HTML\Get_In_Touch.html">GET IN TOUCH</a></div>
+		</li>
+		
+	</ul>
+    </div>
+    </nav>
+    </header>
+
+    <!--Button to scroll up-->
+    <button id="scroll" class="btn btn-dark btn-circle btn-circle-xl m-1" style="z-index: 1;"><a href="#heading">Scroll <i class="fa fa-hand-o-up"></i></a></button>
+    
+    
+    <!--Overview-->
+	<div class = 'whole-page'>
+	    <h1 id="heading" class = "main-headings"><center>Delicious Healthy Recipies! <img src="https://img.icons8.com/dusk/64/000000/healthy-food.png"/></center></h1>
+	  <section>
+		<p> MYTH : Healthy food can never be tasty.<br>TRUTH: A plethora of recipes, if prepared well can create a beautiful fusion of feast and fitness.<br><br>Your food choices each day affect your health — how you feel today, tomorrow, and in the future. Good nutrition is an important part of leading a healthy lifestyle. Combined with physical activity, your diet can help you to reach and maintain a healthy weight, reduce your risk of chronic diseases (like heart disease and cancer), and promote your overall health. By taking steps to eat healthy, you'll be on your way to getting the nutrients your body needs to stay healthy, active, and strong.<br>Eating a healthy diet is not about strict limitations, staying unrealistically thin, or depriving yourself of the foods you love. Rather, it’s about feeling great, having more energy, improving your health, and boosting your mood. The cornerstone of a healthy diet should be to replace processed food with real food whenever possible. Eating food that is as close as possible to the way nature made it can make a huge difference to the way you think, look, and feel.<br>You don’t have to be perfect, you don’t have to completely eliminate foods you enjoy, and you don’t have to change everything all at once—that usually only leads to cheating or giving up on your new eating plan. A better approach is to make a few small changes at a time. Keeping your goals modest can help you achieve more in the long term without feeling deprived or overwhelmed by a major diet overhaul. </p>
+		
+	  </section>
+	    <h1 class = "main-headings">There you go : </h1>
+      
+    <!--Recipies here-->
+	  <ul>
+	  <li><section>
+		<h2 class = "veg-meal" id = "laddoos">Seeds and Nuts Laddoos: <img src="https://img.icons8.com/color/48/000000/vegetarian-food-symbol.png"/></h2>
+		<p>For all the sweet tooth fitness freaks out there, presenting Oil Free, Sugar Free delectable "Seeds and Nuts Laddoo". </p>
+
+		<h3>Ingredients : </h3>
+		<ul>
+		<li>Almonds- One Handful (20-25)</li>
+		<li>Peanuts- One Handful (30-35)</li>
+		<li>Seed mix (readily available - Chia seeds, watermelon seeds, flax seeds, pumpkin seeds, sunflower seeds, white sesame seeds)- 1 small bowl </li>
+		<li>Dessicated coconut- 1 tbsp </li>
+		<li>Dates-12-15</li>
+		<li>Raisins- 25-30</li>
+		<li>Anjeer- 12-15 (optional)</li>
+		<li>Corn flakes- 1tbsp</li>
+		<li>Oats- 1 tbsp</li>
+		<li>Green cardamom pods- 5-6</li>
+		<li>Saunf -1 tsp</li>
+		<li>Cinnamon- 1/2 tsp</li>
+		<li>Jaggery Powder (Gud)- 1 tbsp</li>
+		<li>Water- 1/2 cup</li>
+		<li>Pinch of salt</li>
+		</ul>
+
+	  <div class = "note">
+		<h3>Notes : </h3> 
+		<p>1. You can use any seeds and nuts as per your choice/availability. <br>
+		2. You can adjust the level of sweetness as per your liking. </p>
+      </div>
+      <br>
+      <div class="recipe1">Click to checkout/hide the RECIPE!</div>
+      <div class="view-recipe1">
+		<h3>Recipe : </h3>
+		<p>1. Soak dates, raisins and anjeer in half cup hot water for 10 minutes. Finely chop and keep aside in a large bowl. Save the water.<br>
+		2. Dry roast all the nuts and seeds on stove top for 3-5 minutes or
+		Microwave for- Almonds- 1 min Peanuts- 1 min Dessicated coconut- 1 min Seed mix - 2 min Oats- 2 min Corn flakes- 2 min.<br>
+		3. Coarsely grind the almonds, peanuts, oats and corn flakes after removing peanut skin. Add in the large bowl.<br>
+		4. Add the roasted seed mix in the bowl.<br>
+		5. Coarsely grind cardamom and saunf. Add it to the bowl alongwith salt and cinnamon.<br>
+		6. In a pan take 1 tbsp jaggery and add the water used for soaking dates, raisins and anjeer. Allow it to boil on medium flames. Once the syrup thickens, switch off the flames. (5-10 minutes)<br>
+		7. Pour the jaggery syrup in the bowl. Mix well.<br>
+		8. Laddoo mixture is ready. Use your palms to bind small round laddoos. This mixture will yield around 15 small laddoos. Store in an airtight container.<br> Enjoy!!! </p>
+      </div>
+
+      </section></li>
+      
+      <br>
+      <div class="card bg-dark" style="width: 18rem;">
+        <img class="card-img-top" src="C:\Users\aastha\Desktop\Laddoo.png" alt="Seeds and Nuts Laddoo">
+        <div class="card-body">
+          <p class="card-text text-success"><strong>Dish 1. Seeds and Nuts Laddoo</strong></p>
+        </div>
+      </div>
+
+	  <!--<figure>
+          <br><br>
+		<img class="img-fluid" src = "C:\Users\aastha\Desktop\Laddoo.png" alt = "Seeds and Nuts Laddoo">
+		<figcaption>Dish 1. Seeds and Nuts Laddoo</figcaption>
+      </figure>-->
+	  
+	  <li><section>
+	  <h2 class = "egg-meal" id = "pancakes">Oats and Bananas Pancakes : <img src="https://img.icons8.com/emoji/48/000000/egg-emoji.png"/></h2>
+	  <p>Presenting Deliciously Fluffy and Healthy "Oats Banana Pancakes" made easily in your blender!<br><strong><em> Contains Egg!</em></strong></p>
+
+	  <h3>Ingredients : </h3>
+	  <ul>
+	    <li>Oats- 1 cup </li>
+		<li>Milk- 1 cup</li>
+		<li>Ripe Banana- 2 chopped </li>
+		<li>Eggs- 2 (Can use 1 small bowl curd too)</li>
+		<li>Cinnamon- ½ tsp</li>
+		<li>Salt- ¼ tsp</li>
+		<li>Baking Powder- 2 tsp</li>
+		<li>Jaggery- 1 tsp</li>
+		<li>Coconut/Olive oil- 2 tbsp</li> 
+		<li>Vanilla essence (optional)</li>
+	  </ul>
+      <br>
+      <div class="recipe2">Click to checkout/hide the RECIPE!</div>
+      <div class="view-recipe2">
+        <h3>Recipe : </h3>
+		<p>1. Dry roast oats for a few minutes. Let it cool and grind to a fine powder.<br>
+		2. To this powder, add all the other ingredients (except oil) and blend until smooth.<br>
+		3. Check the consistency of batter. The batter should not be too thick or too thin. Add more milk, if needed to adjust the consistency.<br>
+		4. Let the batter rest for 10 minutes. Add 1 tsp of oil and mix well.<br>
+		5. Heat a non-stick pan, grease the surface with little bit of oil. Add one small griddle of the pancake batter and cover it with a plate. (You can make 3-4 pancakes at once)<br>
+		6. Cook the pancakes for 3-4 minutes on medium low heat. Check the cooking side, it should be brown in colour and bubbles should form on top. Flip the pancake and cook till the edges are golden.<br>
+		7. Serve fresh pancakes with honey/maple syrup/chocolate syrup and fresh fruits/berries/nuts of your choice.<br>Enjoy!!!</p>
+      </div>
+        
+      </section></li>
+      
+      <br>
+      <div class="card bg-dark" style="width: 18rem;">
+        <img class="card-img-top" src="C:\Users\aastha\Desktop\Pancakes.png" alt="Oats and Bananas Pancakes">
+        <div class="card-body">
+          <p class="card-text text-danger"><strong>Dish 2. Oats and Bananas Pancakes</strong></p>
+        </div>
+      </div>
+
+	  <!--<figure>
+          <br><br>
+		<img class="img-fluid" src = "C:\Users\aastha\Desktop\Pancakes.png" alt = "Oats and Bananas Pancakes">
+		<figcaption>Dish 2. Oats and Bananas Pancakes</figcaption>
+	  </figure>-->
+	  
+	  <li><section>
+	  <h2 class = "veg-meal" id = "oats">Overnight Oats : <img src="https://img.icons8.com/color/48/000000/vegetarian-food-symbol.png"/></h2>
+	  <p>Presenting Easy and Healthy Breakfast "Overnight Oats". This recipe is high in fibre and protein. Easy to make, to save you the hassles at breakfast time.</p>
+	  
+	  <h3>Ingredients : </h3>
+	  <ul>
+	    <li>Oats- 2 tbsp</li>
+		<li>Milk- 1 cup</li>
+		<li>Curd- 1 tbsp (optional)</li>
+		<li>Honey/Jaggery- 2 tsp (Sweetness as per taste)</li>
+		<li>Dates- 3-4</li>
+		<li>Anjeer- 2-3 (optional)</li>
+		<li>Raisins- 15-20</li>
+		<li>Cinnamon powder- ½ tsp</li>
+		<li>Salt- pinch </li>
+	  </ul>
+      <br>
+      <div class="recipe3">Click to checkout/hide the RECIPE!</div>
+      <div class="view-recipe3">
+	    <h3>Recipe : </h3>
+	    <p>1. Combine all the above ingredients in a bowl/mug and refrigerate overnight.<br> 
+	    2. Check the consistency in the morning. If needed, add more milk.<br> 
+	    3. Top the oats with fruits and nuts of your choice/availability. I used apples, banana, grapes, pomegranate, almonds, pistachios, walnuts, raisins and dates.<br>
+	    4. You can also make alternate layers of oats, fruits and nuts.<br> Enjoy!!!</p>
+      </div>
+
+      </section></li>
+      
+      <br>
+      <div class="card bg-dark" style="width: 18rem;">
+        <img class="card-img-top" src="C:\Users\aastha\Desktop\Oats.png" alt="Overnight Oats">
+        <div class="card-body">
+          <p class="card-text text-success"><strong>Dish 3. Overnight Oats</strong></p>
+        </div>
+      </div>
+
+	 <!--<figure>
+          <br><br>
+		<img class="img-fluid" src = "C:\Users\aastha\Desktop\Oats.png" alt = "Overnight Oats">
+		<figcaption>Dish 3. Overnight Oats </figcaption>
+	  </figure>-->
+	  
+	  <li><section>
+	  <h2 class = "veg-meal" id = "shake">Post-workout nutrient rich Shake : <img src="https://img.icons8.com/color/48/000000/vegetarian-food-symbol.png"/></h2>
+	  <p>Presenting a tasty, nutrient-dense post workout "Red Delight", after that strenuous session for speedy muscle recovery. It is packed with Vitamin A, C, K, beta carotene, anti oxidants, iron, magnesium and folate among other micronutrients.</p>
+	  
+	  <h3>Ingredients:</h3>
+	  <ul>
+	    <li>Beetroot (roughly chopped)- 1</li>
+		<li>Carrot (roughly chopped)- 1</li>
+		<li>Dates (chopped)- 4-5</li>
+		<li>Anjeer- 3-4 (optional)</li>
+		<li>Green cardamom- 3-4 pods (without outer skin)</li>
+		<li>Black pepper (Freshly ground)- 8-10</li>
+		<li>Cinnamon- 1 inch or ½ tsp powder</li>
+		<li>Jaggery- 1 tsp (adjust as per your sweetness likings)</li>
+		<li>Salt- pinch</li>
+		<li>Milk- 1.5 cups ( around 350 ml)</li>
+		<li>Water- 100 ml for boiling</li>
+	  </ul>
+	  
+	  <div class = "note">
+		<h3>Note :</h3>
+		<p>If you don't have dates, you can substitute it with some sweet fruits like chikoo and banana or dried dates (chuara).</p>
+      </div>
+      <br>
+      <div class="recipe4">Click to checkout/hide the RECIPE!</div>
+      <div class="view-recipe4">
+		<h3>Recipe :</h3>
+		<p>1. Heat a deep bottom pan on high flame. Add water, beetroot, carrots and cinnamon stick. <br>
+		2. Once it boils, switch the flame to low. Cover and cook for 5-10 minutes, till carrots become soft. Turn off the gas. <br>
+		3. Add dates in the pan and cover for 5 minutes. Allow the mixture to cool. <br>
+		4. Once the mix cools, add it to a blender with the rest of the ingredients. Blend to a smooth consistency. <br>
+		5. You can add more milk to adjust the consistency. Tastes best when chilled.<br> <em>Top it with seeds or nuts or your choice.</em><br>Enjoy!!!</p>
+      </div>
+
+      </section></li>
+      
+    <br>
+    <div class="card-deck">
+      <div class="card bg-dark col-md-2 col-lg-3 col-sm-1">
+        <img class="card-img-top" src="C:\Users\aastha\Desktop\Shake.png" alt="Nutrient Rich Shake" width="200" height="350">
+        <div class="card-body">
+          <p class="card-text text-success"><strong>Dish 4. Nutrient Rich Shake</strong></p>
+        </div>
+      </div>
+      <div class="card bg-dark col-md-2 col-lg-3 col-sm-1">
+        <img class="card-img-top" src="C:\Users\aastha\Desktop\Ingredients.png" alt="Ingredients used" width="200" height="350">
+        <div class="card-body">
+          <p class="card-text text-success"><strong>Dish 4. Ingredients used</strong></p>
+        </div>
+      </div>
+    </div>
+
+	  <!--<div style="line-height:30px">
+	  <figure>
+          <br><br>
+		<img class = 'shake' src = "C:\Users\aastha\Desktop\Shake.png" alt = "Nutrient Rich Shake" width = '300' height = '400'>
+		<img class = 'ingredients' src = "C:\Users\aastha\Desktop\Ingredients.png" alt = "Ingredients used" width = '300' height = '400' align = 'right'>
+		<figcaption class = 'shake'>Dish 4. Nutrient Rich Shake &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Dish 4. Ingredients used</figcaption>
+	  </figure>
+	  </div>-->
+	  
+	  <li><section>
+	  <h2 class = "veg-meal" id = "paneer">Paneer Masala : <img src="https://img.icons8.com/color/48/000000/vegetarian-food-symbol.png"/></h2>
+	  <p>Presenting Paneer <strike>Butter</strike> Masala to satiate those taste buds guilt-free.</p>
+	  
+	  <h3>Ingredients :</h3>
+	  <ul>
+	  <li>Paneer cubes - 200gms</li>
+	  <li>Onions (roughly chopped) - 3 medium</li>
+	  <li>Tomato (roughly chopped) - 5 medium</li>
+	  <li>Red Chilli Powder - 1/2tsp</li>
+	  <li>Turmeric powder - 1/4tsb</li>
+	  <li>Garam Masala - 1/2tsp</li>
+	  <li>Coriander(Dhania) powder - 2tsp</li>
+	  <li>Cumin(Jeera) powder - 1/2tsp</li>
+	  <li>Salt - as per taste</li>
+	  <li>Cashews - 10-12</li>
+	  <li>Watermelon seeds - 1tbsp</li>
+	  <li>Bay leaves - 2</li>
+	  <li>Cinnamon stick(Dal chini) - 2</li>
+	  <li>Green Cardamom - 2</li>
+	  <li>Cloves - 4</li>
+	  <li>Garlic - 8-10</li>
+	  <li>Ginger - 1-2 inches</li>
+	  <li>Green chillies (chopped) - 2-4</li>
+	  <li>Capsicum (finely chopped) - 1 medium</li>
+	  <li>Fresh Cream - 2tsp</li>
+	  <li>Curd - 1tbsp</li>
+	  <li>Kasuri Methi - 1tsp</li>
+	  <li>Olive oil - 2tsp</li>
+	  <li>Water - 1.5 cup (about 350ml)</li>
+	  </ul>
+      <br>
+    <div class="recipe5">Click to checkout/hide the RECIPE!</div>
+    <div class="view-recipe5">
+	    <h3>Recipe :</h3>
+	    <p>1. Heat 1 tsp oil in a pan on medium flame. Once the oil becomes hot, add onion. Saute for 5-6 minutes till onions become light brown.<br>
+	    2. Add tomato and cook covered for 6-8 minutes, till tomato become mushy.<br>
+	    3. Now, add salt, red chilli, garam masala, cumin and coriander powder. Mix well and cook for another 5-6 minutes. <br>
+	    4. Add cashews and watermelon seeds. Cook for 2-3 minutes. Allow the mix to cool.<br>
+	    5. Once it cools, blend it with some water (about 50 ml) to a smooth consistency.<br>
+	    6. In a mortar pestle, add ginger, garlic, green chillies and cloves to prepare a paste. <br>
+	    7. In the same pan, add the remaining oil. Once oil becomes hot, add cumin seeds, cinnamon stick, cardamom and bay leaves and fry for 1 minute on low flame.<br> 
+	    8. Add ginger-garlic paste and saute for 30-40 seconds, till raw aroma goes away.<br>
+	    9. Add capsicum and saute for 5-6 minutes on medium heat. Now, add the onion- garlic puree and cook for 2-3 minutes.<br>
+	    10. Add freshly beaten cream and cook till oil leaves the side of the masala. Turn off the gas. Add curd and mix well.<br>
+	    11. Turn on the flames to medium and cook again till you see oil leaving the side of the masala. <br>
+	    12. Add, hot water (about 300ml) and let the curry boil. Once it boils, add paneer cubes. Cook for 3-4 minutes.<br> 
+	    13. Add kasuri methi and turn off the gas. Add a pinch of garam masala. Garnish with cream/curd and kasuri methi/coriander. <br>
+	    14. Serve with jeera rice/roti/paratha. Tastes best when served hot. I served it with beetroot carrot thepla.(see the recipe below)<br>Enjoy!!!</p>
+    </div>  
+      </section></li>
+
+      <br>
+      <div class="card bg-dark" style="width: 18rem;">
+        <img class="card-img-top" src="C:\Users\aastha\Desktop\Paneer.jpg" alt="Paneer Masala">
+        <div class="card-body">
+          <p class="card-text text-success"><strong>Dish 5. Paneer Masala</strong></p>
+        </div>
+      </div>
+
+	  <!--<figure>
+          <br><br>
+		<img src = "C:\Users\aastha\Desktop\Paneer.jpg" alt = "Paneer Masala" width = '300' height = '300'>
+		<figcaption>Dish 5. Paneer Masala</figcaption>
+	  </figure>-->
+	  
+	  <li><section>
+	  <h2 class = "veg-meal" id = "thepla">Beetroot and Carrot Thepla : <img src="https://img.icons8.com/color/48/000000/vegetarian-food-symbol.png"/></h2>
+	  <p>Presenting Beetroot and Carrot Thepla. A tasty way to incorporate veggies in your meal.</p>
+	  <p>Cooking time: 40-45 minutes<br>
+	  Calories count: approx. 150 per thepla</p>
+	  
+	  <h3>Ingredients :</h3>
+	  <ul>
+	  <li>Beetroot(grated) - 1 medium </li>
+	  <li>Carrot(grated) - 2 medium</li>
+	  <li>Onion(grated) - 1 medium</li>
+	  <li>Ginger(grated) - 1 inch (optional)</li>
+	  <li>Green chillies (finely chopped) - 2</li>
+	  <li>Ajwain - 1/2 tsp</li>
+	  <li>Kasuri Methi - 1 tsp</li>
+	  <li>Cumin powder - 1/2 tsp</li>
+	  <li>Garam Masala - 1/2 tsp</li>
+	  <li>Salt - as per taste</li>
+	  <li>Ghee - 1 tsp</li>
+	  <li>Multigrain flour - 1 cup</li>
+	  <li>Sooji - 1/4 cup</li>
+	  </ul>
+	  
+	<div class = "note">
+	  <h3>Note : </h3>
+	  <p>You can also add millet flour, oats flour and gram flour(besan).</p>
+	</div>
+    <br>
+    <div class="recipe6">Click to checkout/hide the RECIPE!</div>
+    <div class="view-recipe6">
+	  <h3>Recipe :</h3>
+	  <p>1. Combine all the ingredients in a large bowl and mix well.<br>
+	  2. Start kneading the dough. Knead the dough well, cover and let it rest for half an hour. <br>
+	  3. Make round balls, dust with flour and start rolling rotis. Heat a tawa at medium high flames and cook partly on both the sides.<br>
+	  4. Apply ghee, flip and cook till golden spots start to appear. Repeat for the other side. <br>
+	  5. Serve hot with dahi/raita/dal/bhaji.<br>Enjoy!!!</p>
+    </div>
+
+      </section></li>
+      
+      <br>
+      <div class="card bg-dark" style="width: 18rem;">
+        <img class="card-img-top" src="C:\Users\aastha\Desktop\Thepla.jpg" alt="Beetroot and Carrot Thepla">
+        <div class="card-body">
+          <p class="card-text text-success"><strong>Dish 6. Beetroot and Carrot Thepla</strong></p>
+        </div>
+      </div>
+
+	  <!--<figure>
+          <br><br>
+		<img src = "C:\Users\aastha\Desktop\Thepla.jpg" alt = "Beetroot and Carrot Thepla" width = '350' height = '300'>
+		<figcaption>Dish 6. Beetroot and Carrot Thepla</figcaption>
+	  </figure>-->
+	  
+	  <li><section>
+	  <h2 class = "veg-meal" id = "parfait">Banana Cream Parfait : <img src="https://img.icons8.com/color/48/000000/vegetarian-food-symbol.png"/></h2>
+	  <p>Presenting Banana Cream Parfait. Time to twist that old school banana shake nostalgia.</p>
+	  <h3>Ingredients :</h3>
+	  <ul>
+	  <li>Ripe Bananas (brown skin) - 3</li>
+	  <li>Milk - 100ml</li>
+	  <li>Peanut Butter - 2tbsp</li>
+	  <li>Salt - pinch</li>
+	  <li>Orange juice - 200ml</li>
+	  <li>Lemon juice - 1tbsp</li>
+	  <li>Honey - 1tbsp</li>
+	  <li>Cinnamon - 1/2tbsp</li>
+	  <li>Fruits and nuts of your choice</li>
+	  </ul>
+    <br>
+    <div class="recipe7">Click to checkout/hide the RECIPE!</div>
+    <div class="view-recipe7">
+	  <h3>Recipe : </h3>
+	  <p>1. Peel and cut bananas in about 1 inch pieces. Place in an airtight container and freeze overnight. <br>
+	  2. Blend together frozen bananas, milk, peanut butter and salt to a smooth creamy consistency. <br>
+	  3. Place the cream in the airtight container and freeze for a few hours.<br>
+	  4. In a small saucepan, mix orange juice, lemon juice, honey and cinnamon.<br>
+	  5. Place the pan on medium flames and cook for 5-6 minutes, till the juice reaches syrup like consistency. <br>
+	  6. Chop fruits and nuts of your choice. To make the Parfait, alternate layers of fruits, cream and orange syrup. Top with nuts and orange syrup.<br><br>
+
+	  🤫Secret Tip: Add a dash of high spirits as per preference.<br>Enjoy!!!</p>
+    </div>
+
+      </section></li>
+      
+      <br>
+      <div class="card bg-dark" style="width: 18rem;">
+        <img class="card-img-top" src="C:\Users\aastha\Desktop\Nutmix.jpg" alt="Banana Cream Parfait">
+        <div class="card-body">
+          <p class="card-text text-success"><strong>Dish 7. Banana Cream Parfait</strong></p>
+        </div>
+      </div>
+
+	  <!--<figure>
+          <br><br>
+		<img class="img-fluid" src = "C:\Users\aastha\Desktop\Nutmix.jpg" alt = "Banana Cream Parfait" width = '300' height = '350'>
+		<figcaption>Dish 7. Banana Cream Parfait</figcaption>
+	  </figure>-->
+      
+      <!--Credits-->
+	  <p><strong id = "end">Happy Eating!😋</strong><br>
+	  <strong>Credits :</strong><a href = "https://www.instagram.com/thefitfoodophile/"> @thefitfoodophile <img src="C:\Users\aastha\Desktop\instagram.png" width="30" height="30"></a></p>
+	  
+	  </ul>
+     
+    <!--BMI Calculator-->
+	<div class = "jumbotron">
+      <h1 id = "BMI">BMI Calculator</h1>
+	  <form id = "form">
+        <div class="row">
+            <div class="col-md">
+		<label for="fullName">Full name:</label><br>
+        <input class="input" type="text" id="fullNname" name="fullName" placeholder="अपना नाम लिखें" required><br>
+            </div>
+            <div class="col-md">
+		<label for="age">Age:</label><br>
+        <input class="input" type="number" id="age" name="age" placeholder = "Enter age above 15" min = "15" max = "100" required>
+            </div>
+        </div>
+	  <div>
+	  Gender:
+	  <div>
+		<label for="male">Male</label>
+		<input class="input" type="radio" id="male" name="gender" value="male">
+	  </div>
+	  <div>
+		<label for="female">Female</label>
+		<input class="input" type="radio" id="female" name="gender" value="female" checked>
+	  </div>
+      </div>
+        <div class="row">
+            <div class="col-md">
+		<label for="height">Height:</label><br>
+        <input class="input" type="number" id="height" name="height" placeholder = "Height in cm" min = "50" required><br>
+            </div>
+            <div class="col-md">
+		<label for="weight">Weight:</label><br>
+        <input class="input" type="number" id="weight" name="weight" placeholder = "Weight in kgs" min = "10" required><br><br>
+            </div>
+        </div>
+		<button id = "calculate" type="button" class = "btn btn-success" onclick = "BMIcal()" >CALCULATE ✔</button>
+		<input id = "reset" class="btn btn-primary" type="reset" value="RESET ⏪">
+	  </form>
+      
+      <!--BMI calculation and displaying it-->
+	  <p id = "report">
+	  <script language = "javascript" type = "text/javascript">
+			
+			function BMIcal(){
+                let button_abled = document.getElementById("hide");
+				let info = document.getElementById("form");
+				let Report = document.getElementById("calculate");
+				let Name = info.elements[0].value;
+				let Age = info.elements[1].value;
+				let GenderM = info.elements[2].value;
+				let GenderF = info.elements[3].value;
+				let Height = info.elements[4].value;
+				let Weight = info.elements[5].value;
+                let BMI = Weight/((Height/100)**2);
+                
+                button_abled.disabled = false ;
+
+                if (Age<15){
+                    document.getElementById("report").innerHTML = "<br>Invalid AGE! Value should be greater than or equal to 15.";
+                }
+                else if (Height<50){
+                    document.getElementById("report").innerHTML = "<br>Invalid HEIGHT! Value should be greater than or equal to 50.";
+                }
+                else if (Weight<10){
+                    document.getElementById("report").innerHTML = "<br>Invalid WEIGHT! Value should be greater than or equal to 10.";
+                }
+                else if (Age>=15 && BMI<18.5){
+                    Req_wt = 18.5*((Height/100)**2);
+                    to_gain = Req_wt-Weight;
+					document.getElementById("report").innerHTML = "<br>Dear " + Name + ",you are UNDERWEIGHT. Your BMI = "+ BMI+ "<br>You need to gain "+ to_gain+ " kilos. <br>Try smoothies and shakes. Lift more weight and stay healthy.";
+				}
+				else if (Age>=15 && BMI>=18.5 && BMI<25){
+                    document.getElementById("report").innerHTML = "<br>Dear " + Name + ",you are FIT. Your BMI = "+ BMI+ ". Good job keep going.";
+				}
+				else if (Age>=15 && BMI>=25 && BMI<30){
+                    Req_wt = 25*((Height/100)**2);
+                    to_lose = Weight-Req_wt;
+					document.getElementById("report").innerHTML = "<br>Dear " + Name + ",you are OVERWEIGHT. Your BMI = "+ BMI+ ". <br>You need to lose "+ to_lose+ " kilos. <br>Exercise daily for an hour and you'll get back to shape. Keep going.";
+				}
+				else if (Age>=15 && BMI>=30 && BMI<40){
+                    Req_wt = 25*((Height/100)**2);
+                    to_lose = Weight-Req_wt;
+					document.getElementById("report").innerHTML = "<br>Dear " + Name + ",you are OBESE. Your BMI = "+ BMI+ ". <br>You need to lose "+ to_lose+ " kilos. <br>No worries! Start taking some baby steps to achieve your goal. Change your inactive lifestyle and keep going.";
+				}
+				else if (Age>=15 && BMI>=40){
+                    Req_wt = 25*((Height/100)**2);
+                    to_lose = Weight-Req_wt;
+					document.getElementById("report").innerHTML = "<br>Dear " + Name + ",you are SEVERELY OBESE. Your BMI = "+ BMI+ ". <br>You need to lose "+ to_lose+ " kilos. <br>No worries! Start taking some baby steps to achieve your goal. Change your inactive lifestyle and keep going.";
+				}
+			}
+      </script>
+      </p>
+      <button id = "hide" type="button" class="btn btn-warning" disabled>Hide/Show Report</button>
+	</div>
+     
+    <!--How was the content? YES/NO-->
+	<div>
+	  <p><br><strong>Liked the content?</strong></p>
+	  <button id = "yes" type="button" class="btn btn-success" onclick="insertContent1()" >YES :)</button>
+	  <button id = "no" type="button" class="btn btn-danger" onclick="insertContent2()" >NOPE :(</button>
+      
+      <!--Disabling the buttons once clicked-->
+	  <script language = "javascript" type = "text/javascript">
+			let count = 0;
+			let replyYes = document.getElementById("yes");
+			let replyNo = document.getElementById("no");
+			function insertContent1(){
+				if (count == 0) {
+					replyYes.disabled = true ;
+					replyNo.disabled = true;
+					replyYes.insertAdjacentHTML('afterend', '<p class = "yes"><strong>Glad to hear from you!😃</strong></p>');
+					count += 1;
+				}
+			}
+			
+			function insertContent2(){
+				if (count == 0){
+					replyYes.disabled = true ;
+					replyNo.disabled = true;
+					replyNo.insertAdjacentHTML('afterend', '<p class = "no"><strong>Thanks! Let me know where I went wrong <a href="C:\HTML\\Get_In_Touch.html">here</a>.🙂</strong></p>');
+					count += 1;
+				}
+			}
+	  </script>
+	</div>
+	  
+	  
+	  <footer>
+	  <small><br>Copyright © 2020 Aastha Joshi, all rights reserved.</small>
+	  </footer>
+  
+	</div>
+  </body>
+
+</html>
